@@ -4,14 +4,14 @@ import Navbar from './Navbar';
 
 const Layout = () => {
     return (
-        <div className="min-h-screen relative flex flex-col items-center pt-32 pb-20 px-4">
+        <div className="min-h-screen relative flex flex-col items-center pt-36 md:pt-40 pb-20 px-3 md:px-6">
             <Navbar serverName="SeaMC" />
 
             <div className="absolute inset-0 bg-gradient-to-b from-jade-glow/10 to-transparent pointer-events-none"></div>
             <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-jade-glow/20 blur-[120px] rounded-full pointer-events-none"></div>
             <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-jade-glow/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-            <div className="relative z-10 w-full max-w-5xl flex flex-col items-center font-sans">
+            <div className="relative z-10 w-full max-w-[1200px] flex flex-col items-stretch font-sans">
                 <Outlet />
 
                 <div className="w-full flex flex-col items-center pt-32 pb-20 text-center">

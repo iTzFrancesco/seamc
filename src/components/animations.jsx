@@ -9,17 +9,19 @@ export const FadeInView = ({
   className = ''
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: false, margin: '-100px' });
 
   const directions = {
-    up: { y: 60, x: 0 },
-    down: { y: -60, x: 0 },
-    left: { x: 60, y: 0 },
-    right: { x: -60, y: 0 }
+    up: { y: 90, x: 0 },
+    down: { y: -90, x: 0 },
+    left: { x: 90, y: 0 },
+    right: { x: -90, y: 0 }
   };
 
   const initial = {
     opacity: 0,
+    scale: 0.96,
+    filter: 'blur(6px)',
     ...directions[direction]
   };
 
@@ -27,7 +29,7 @@ export const FadeInView = ({
     <motion.div
       ref={ref}
       initial={initial}
-      animate={isInView ? { opacity: 1, x: 0, y: 0 } : initial}
+      animate={isInView ? { opacity: 1, x: 0, y: 0, scale: 1, filter: 'blur(0px)' } : initial}
       transition={{
         duration,
         delay,
@@ -47,15 +49,15 @@ export const ScaleInView = ({
   className = ''
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: false, margin: '-100px' });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+      initial={{ opacity: 0, scale: 0.9, y: 70, filter: 'blur(6px)' }}
+      animate={isInView ? { opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' } : { opacity: 0, scale: 0.9, y: 70, filter: 'blur(6px)' }}
       transition={{
-        duration,
+        duration: duration + 0.1,
         delay,
         ease: [0.21, 0.47, 0.32, 0.98]
       }}
@@ -72,7 +74,7 @@ export const StaggerContainer = ({
   className = ''
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const isInView = useInView(ref, { once: false, margin: '-50px' });
 
   return (
     <motion.div
@@ -101,12 +103,14 @@ export const StaggerItem = ({
   return (
     <motion.div
       variants={{
-        hidden: { opacity: 0, y: 40 },
+        hidden: { opacity: 0, y: 90, scale: 0.94, filter: 'blur(6px)' },
         visible: { 
-          opacity: 1, 
+          opacity: 1,
           y: 0,
+          scale: 1,
+          filter: 'blur(0px)',
           transition: {
-            duration: 0.5,
+            duration: 0.7,
             ease: [0.21, 0.47, 0.32, 0.98]
           }
         }

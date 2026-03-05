@@ -66,6 +66,10 @@ body {
   text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
 }
 
+.text-glow-amber {
+  text-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+}
+
 .bg-jade-gradient {
   background: linear-gradient(135deg, rgba(186, 230, 253, 0.12) 0%, rgba(3, 20, 39, 0.55) 100%);
 }
@@ -90,6 +94,37 @@ body {
 .theme-band-light {
   background: linear-gradient(130deg, rgba(186, 230, 253, 0.16), rgba(125, 211, 252, 0.08));
   border: 1px solid rgba(186, 230, 253, 0.22);
+}
+
+.theme-band-emerald {
+  background: linear-gradient(130deg, rgba(6, 78, 59, 0.15), rgba(16, 185, 129, 0.05));
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.theme-band-indigo {
+  background: linear-gradient(130deg, rgba(49, 46, 129, 0.15), rgba(99, 102, 241, 0.05));
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.theme-band-amber {
+  background: linear-gradient(130deg, rgba(120, 53, 15, 0.15), rgba(245, 158, 11, 0.05));
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.glass-card-emerald {
+  @apply bg-emerald-500/5 border-emerald-500/20 hover:border-emerald-500/40;
+}
+
+.glass-card-indigo {
+  @apply bg-indigo-500/5 border-indigo-500/20 hover:border-indigo-500/40;
+}
+
+.glass-card-amber {
+  @apply bg-amber-500/5 border-amber-500/20 hover:border-amber-500/40;
+}
+
+.step-number {
+  @apply absolute -top-4 -left-4 w-12 h-12 rounded-xl flex items-center justify-center font-black text-xl shadow-lg;
 }
 
 .section-divider {
