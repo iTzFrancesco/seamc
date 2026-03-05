@@ -1,18 +1,18 @@
 [[redirects]]
-  from = "http://jademc.fun/*"
-  to = "https://jademc.fun/:splat"
+  from = "http://seamc.it/*"
+  to = "https://seamc.it/:splat"
   status = 301
   force = true
 
 [[redirects]]
-  from = "http://www.jademc.fun/*"
-  to = "https://jademc.fun/:splat"
+  from = "http://www.seamc.it/*"
+  to = "https://seamc.it/:splat"
   status = 301
   force = true
 
 [[redirects]]
-  from = "https://www.jademc.fun/*"
-  to = "https://jademc.fun/:splat"
+  from = "https://www.seamc.it/*"
+  to = "https://seamc.it/:splat"
   status = 301
   force = true
 
