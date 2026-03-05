@@ -19,20 +19,6 @@ const Home = ({ serverIP, serverName, mcPlayers, discordOnline, discordInvite, m
                     Un server Minecraft italiano a tema oceano, con atmosfera marina, eventi e community attiva.
                 </p>
 
-                <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
-                    <div className="glass-card p-4 border-jade-glow/30 bg-jade-dark/40">
-                        <div className="text-xs uppercase tracking-[0.2em] text-jade-light/70 mb-3">Placeholder Hero 01</div>
-                        <div className="rounded-2xl overflow-hidden border border-jade-glow/20 bg-gradient-to-br from-sky-500/20 to-cyan-400/5">
-                            <img src={logo} alt="Placeholder visual SeaMC" className="w-full h-48 object-contain p-5" />
-                        </div>
-                    </div>
-                    <div className="glass-card p-4 border-jade-glow/30 bg-jade-dark/40">
-                        <div className="text-xs uppercase tracking-[0.2em] text-jade-light/70 mb-3">Placeholder Hero 02</div>
-                        <div className="rounded-2xl overflow-hidden border border-jade-glow/20 bg-gradient-to-br from-cyan-500/20 to-sky-400/5">
-                            <img src={mascot} alt="Placeholder mascot SeaMC" className="w-full h-48 object-contain p-4" />
-                        </div>
-                    </div>
-                </div>
             </section>
 
             <div className="flex justify-center w-full mb-20">

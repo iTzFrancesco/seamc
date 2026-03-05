@@ -23,7 +23,7 @@ const Layout = () => {
                             <p className="text-jade-light/60 font-black tracking-[0.4em]">Copyright All Rights Reserved 2026</p>
                             <p className="text-jade-light/60 font-black tracking-[0.4em]">Non siamo affiliati con Mojang, AB.</p>
                             <span className="text-jade-light/60 font-bold uppercase tracking-[0.2em] text-sm group">
-                                by <span className="text-jade-glow text-lg">iTzFrancesco</span>
+                                by <span className="text-jade-glow text-lg">𝖎𝕿𝖟𝕱𝖗𝖆𝖓𝖈𝖊𝖘𝖈𝖔</span>
                             </span>
                         </div>
                     </div>
