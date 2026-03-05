@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 
@@ -17,13 +17,13 @@ const Layout = () => {
                 <div className="w-full flex flex-col items-center pt-32 pb-20 text-center">
                     <div className="flex flex-col items-center gap-6">
                         <h2 className="text-sea-glow text-4xl md:text-5xl font-black tracking-tighter drop-shadow-[0_0_40px_rgba(56,189,248,0.5)] animate-pulse-slow italic">
-                            <span className="text-white">Sea</span><span className="text-sea-glow">MC</span>
+                            <span className="text-white">Sea</span><span className="text-cyan-glow">MC</span>
                         </h2>
                         <div className="flex flex-col gap-2">
                             <p className="text-sea-light/60 font-black tracking-[0.4em]">Copyright All Rights Reserved 2026</p>
                             <p className="text-sea-light/60 font-black tracking-[0.4em]">Non siamo affiliati con Mojang, AB.</p>
-                            <span className="text-sea-light/60 font-bold uppercase tracking-[0.2em] text-sm group">
-                                by <span className="text-sea-glow text-lg">????????????????????????</span>
+                            <span className="text-sea-light/60 font-bold tracking-[0.2em] text-sm group">
+                                by <span className="text-cyan-glow text-lg">𝖎𝕿𝖟𝕱𝖗𝖆𝖓𝖈𝖊𝖘𝖈𝖔</span>
                             </span>
                         </div>
                     </div>

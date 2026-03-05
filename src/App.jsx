@@ -9,7 +9,7 @@ function App() {
   const serverName = "SeaMC"
   const discordInvite = "https://discord.gg/HDxBHTjmcT"
   const discordInviteCode = "HDxBHTjmcT"
-  const modesMaxWidth = "34rem"
+  const modesMaxWidth = "72rem"
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(serverIP)
@@ -62,5 +62,4 @@ function App() {
 }
 
 export default App
-
 

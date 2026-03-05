@@ -28,6 +28,33 @@ const featureCards = [
   },
 ];
 
+const modeCards = [
+  {
+    title: 'seasmp',
+    titleSizeClass: 'text-3xl',
+    titleSize: null,
+    titleParts: [
+      { text: 'Sea', className: 'text-cyan-glow' },
+      { text: 'SMP', className: 'text-white-glow' },
+    ],
+    body: 'test',
+    icon: smpIcon,
+    iconAlt: 'SMP icon',
+  },
+  {
+    title: 'elybox',
+    titleSizeClass: 'text-3xl',
+    titleSize: null,
+    titleParts: [
+      { text: 'Ely', className: 'text-cyan-glow' },
+      { text: 'Box', className: 'text-white-glow' },
+    ],
+    body: 'test',
+    icon: smpIcon,
+    iconAlt: 'SMP icon',
+  }
+];
+
 const trustBadges = ['Eventi settimanali', 'Community italiana', 'Staff attivo'];
 
 const randomPercent = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}%`;
@@ -259,8 +286,8 @@ const Home = ({ serverIP, serverName, mcPlayers, discordOnline, discordInvite, m
         <SectionOrbs />
         <ScaleInView duration={0.7}>
           <motion.div className="glass-card bg-indigo-500/5 border-indigo-500/20 p-6 md:p-8" whileHover={{ y: -6 }}>
-            <div className="section-divider !from-transparent !via-indigo-500 !to-transparent" />
-            <h2 className="text-2xl md:text-3xl font-black text-white mb-4">Storia</h2>
+            <div className="!from-transparent !via-indigo-500 !to-transparent" />
+            <h2 className="text-2xl md:text-3xl font-black text-sea-glow mb-4 text-center">Storia</h2>
             <p className="text-indigo-100/80 leading-relaxed">
               SeaMC nasce per offrire un server italiano con identita chiara: atmosfera oceanica, gioco collaborativo e
               crescita costante della community. L&apos;obiettivo e proporre sessioni memorabili, senza caos e con eventi
@@ -277,8 +304,8 @@ const Home = ({ serverIP, serverName, mcPlayers, discordOnline, discordInvite, m
       <section className="w-full mb-24 theme-band theme-band-indigo">
         <SectionOrbs />
         <FadeInView direction="up" duration={0.6}>
-          <h2 className="text-2xl md:text-3xl font-black text-white mb-2 text-center">
-            ⚓ Perche Scegliere SeaMC
+          <h2 className="text-2xl md:text-3xl font-black text-sea-glow mb-2 text-center">
+            ⚓ Perche Scegliere <span className='text-cyan-glow'>Sea</span><span className='text-white-glow'>MC</span>
           </h2>
           <p className="text-center text-indigo-100/70 mb-6">
             Un mix di <strong>progressione</strong>, <strong>eventi</strong> e <strong>community</strong> pensato per durare.
@@ -304,10 +331,10 @@ const Home = ({ serverIP, serverName, mcPlayers, discordOnline, discordInvite, m
       </section>
 
       {/* features ed eventi */}
-      <section className="w-full mb-24 theme-band theme-band-amber">
+      <section className="w-full mb-24 theme-band theme-band-deep">
         <SectionOrbs />
         <FadeInView direction="up" duration={0.6}>
-          <h2 className="text-2xl md:text-3xl font-black text-white mb-6 text-center text-glow-amber">Features</h2>
+          <h2 className="text-2xl md:text-3xl font-black text-sea-glow mb-6 text-center">Features</h2>
         </FadeInView>
         <StaggerContainer
           className="grid [grid-template-columns:repeat(auto-fit,minmax(100px,1fr))] gap-4 items-stretch w-full"
@@ -328,20 +355,40 @@ const Home = ({ serverIP, serverName, mcPlayers, discordOnline, discordInvite, m
       <section className="w-full mx-auto mb-24 theme-band theme-band-deep" style={{ maxWidth: modesMaxWidth }}>
         <SectionOrbs />
         <FadeInView direction="up" duration={0.6}>
-          <h2 className="text-2xl md:text-3xl font-black text-white mb-6 text-center">Modalità</h2>
+          <h2 className="text-2xl md:text-3xl font-black text-sea-glow mb-6 text-center">Le nostre Modalità</h2>
         </FadeInView>
         <ScaleInView duration={0.6}>
-          <motion.div className="mode-card group" whileHover={{ y: -10, transition: { duration: 0.3 } }}>
-            <motion.div
-              className="w-32 h-32 bg-white/5 backdrop-blur-md border border-sea-glow/20 rounded-full flex items-center justify-center mb-6 group-hover:border-sea-glow/50 transition-all duration-500 shadow-[0_0_20px_rgba(56,189,248,0.1)]"
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              transition={{ duration: 0.4 }}
-            >
-              <img src={smpIcon} alt="SMP icon" className="w-28 h-28 object-contain drop-shadow-[0_0_10px_rgba(56,189,248,0.3)]" />
-            </motion.div>
-            <h3 className="text-2xl font-bold mb-3 text-white">SeaSMP</h3>
-            <p className="text-sea-light/60 text-s leading-relaxed">La modalita disponibile al momento e SeaSMP.</p>
-          </motion.div>
+          <StaggerContainer
+            className="grid [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))] gap-5 items-stretch"
+            staggerDelay={0.1}
+          >
+            {modeCards.map((mode) => (
+              <StaggerItem key={mode.title}>
+                <motion.div className="mode-card group h-full" whileHover={{ y: -10, transition: { duration: 0.3 } }}>
+                  <motion.div
+                    className="w-32 h-32 bg-white/5 backdrop-blur-md border border-sea-glow/20 rounded-full flex items-center justify-center mb-6 group-hover:border-sea-glow/50 transition-all duration-500 shadow-[0_0_20px_rgba(56,189,248,0.1)]"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <img src={mode.icon} alt={mode.iconAlt} className="w-28 h-28 object-contain drop-shadow-[0_0_10px_rgba(56,189,248,0.3)]" />
+                  </motion.div>
+                  <h3
+                    className={`${mode.titleSizeClass ?? 'text-2xl'} font-bold mb-3`}
+                    style={mode.titleSize ? { fontSize: mode.titleSize } : undefined}
+                  >
+                    {mode.titleParts?.length
+                      ? mode.titleParts.map((part, idx) => (
+                          <span key={`${mode.title}-part-${idx}`} className={part.className}>
+                            {part.text}
+                          </span>
+                        ))
+                      : mode.title}
+                  </h3>
+                  <p className="text-sea-light/60 text-s leading-relaxed">{mode.body}</p>
+                </motion.div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </ScaleInView>
       </section>
 

@@ -66,6 +66,11 @@ body {
   text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
 }
 
+.text-sea-glow {
+  color: rgb(56 189 248);
+  text-shadow: 0 0 14px rgba(56, 189, 248, 0.65);
+}
+
 .text-cyan-glow {
   color: rgb(34 211 238);
   text-shadow: 0 0 14px rgba(34, 211, 238, 0.65);

@@ -42,7 +42,7 @@ const Staff = ({ serverName }) => {
         <div className="text-center py-20 px-4">
             <FadeInView direction="down" duration={0.8}>
                 <h1 className="text-5xl md:text-7xl font-black text-white tracking-tighter text-glow mb-8">
-                    Staff <span className="text-white">Sea</span><span className="text-sea-glow">MC</span>
+                    Staff <span className="text-white">Sea</span><span className="text-cyan-glow">MC</span>
                 </h1>
             </FadeInView>
 
@@ -106,7 +106,7 @@ const Staff = ({ serverName }) => {
                     </motion.div>
 
                     <h2 className="text-3xl md:text-5xl font-black text-white mb-6">
-                        Candidati <span className="text-sea-glow">Staff</span> anche tu!
+                        Candidati <span className="text-cyan-glow">Staff</span> anche tu!
                     </h2>
 
                     <p className="text-sea-light/80 text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
