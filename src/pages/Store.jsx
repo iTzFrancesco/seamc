@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const STORE_URL = 'https://store.seamc.it';
 const STORE = "store.seamc.it";
@@ -15,14 +15,14 @@ const Store = () => {
 
   return (
     <div className="py-20 px-4 text-center">
-      <p className="text-jade-light/80">
+      <p className="text-sea-light/80">
         {blocked ? 'Popup bloccato. Apri lo store dal link qui sotto.' : 'Store aperto in una nuova scheda.'}
       </p>
       <a
         href={STORE_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-block mt-4 text-jade-glow underline"
+        className="inline-block mt-4 text-sea-glow underline"
       >
         Apri {STORE}
       </a>
@@ -31,5 +31,6 @@ const Store = () => {
 };
 
 export default Store;
+
 
 

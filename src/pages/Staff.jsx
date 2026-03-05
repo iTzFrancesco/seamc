@@ -42,12 +42,12 @@ const Staff = ({ serverName }) => {
         <div className="text-center py-20 px-4">
             <FadeInView direction="down" duration={0.8}>
                 <h1 className="text-5xl md:text-7xl font-black text-white tracking-tighter text-glow mb-8">
-                    Staff <span className="text-white">Sea</span><span className="text-jade-glow">MC</span>
+                    Staff <span className="text-white">Sea</span><span className="text-sea-glow">MC</span>
                 </h1>
             </FadeInView>
 
             <FadeInView direction="up" delay={0.2} duration={0.8}>
-                <p className="text-xl text-jade-light/70 max-w-2xl mx-auto mb-16">
+                <p className="text-xl text-sea-light/70 max-w-2xl mx-auto mb-16">
                     Il team che rende possibile l'esperienza nel network. Gentili, professionali e sempre pronti ad aiutarti.
                 </p>
             </FadeInView>
@@ -67,11 +67,11 @@ const Staff = ({ serverName }) => {
                             {cat.members.map((member) => (
                                 <StaggerItem key={member.displayName}>
                                     <motion.div 
-                                        className="flex flex-col items-center group min-w-[200px] glass-card p-8 border-jade-glow/10 hover:border-jade-glow/30 transition-all duration-500"
+                                        className="flex flex-col items-center group min-w-[200px] glass-card p-8 border-sea-glow/10 hover:border-sea-glow/30 transition-all duration-500"
                                         whileHover={{ y: -10, transition: { duration: 0.3 } }}
                                     >
                                         <motion.div 
-                                            className="w-20 h-20 rounded-full mb-6 border border-white/10 group-hover:border-jade-glow/50 transition-all flex items-center justify-center overflow-hidden shadow-[0_0_20px_rgba(0,0,0,0.3)]"
+                                            className="w-20 h-20 rounded-full mb-6 border border-white/10 group-hover:border-sea-glow/50 transition-all flex items-center justify-center overflow-hidden shadow-[0_0_20px_rgba(0,0,0,0.3)]"
                                             whileHover={{ scale: 1.1, rotate: 5 }}
                                             transition={{ duration: 0.3 }}
                                         >
@@ -82,9 +82,9 @@ const Staff = ({ serverName }) => {
                                             />
                                         </motion.div>
                                         <span className="text-2xl font-black text-white italic tracking-tight mb-1">{member.displayName}</span>
-                                        <span className="text-sm text-jade-light/60 italic mb-3">{member.mcName}</span>
+                                        <span className="text-sm text-sea-light/60 italic mb-3">{member.mcName}</span>
                                         {member.description && (
-                                            <p className="text-base text-jade-light/40 italic max-w-[180px] leading-relaxed">{member.description}</p>
+                                            <p className="text-base text-sea-light/40 italic max-w-[180px] leading-relaxed">{member.description}</p>
                                         )}
                                     </motion.div>
                                 </StaggerItem>
@@ -96,7 +96,7 @@ const Staff = ({ serverName }) => {
 
             {/* Sezione Candidati Staff */}
             <FadeInView direction="up" delay={0.3} duration={0.8} className="mt-32 mb-16">
-                <div className="glass-card bg-gradient-to-r from-jade-glow/15 to-cyan-500/10 border-jade-glow/30 p-10 md:p-16 text-center max-w-4xl mx-auto rounded-3xl">
+                <div className="glass-card bg-gradient-to-r from-sea-glow/15 to-cyan-500/10 border-sea-glow/30 p-10 md:p-16 text-center max-w-4xl mx-auto rounded-3xl">
                     <motion.div
                         animate={{ y: [0, -10, 0] }}
                         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -106,10 +106,10 @@ const Staff = ({ serverName }) => {
                     </motion.div>
 
                     <h2 className="text-3xl md:text-5xl font-black text-white mb-6">
-                        Candidati <span className="text-jade-glow">Staff</span> anche tu!
+                        Candidati <span className="text-sea-glow">Staff</span> anche tu!
                     </h2>
 
-                    <p className="text-jade-light/80 text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-sea-light/80 text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
                         Vuoi fare la differenza e aiutare la community a crescere? 
                         Unisciti al nostro team! Cerchiamo persone motivate, creative e pronte a lasciare il segno. 
                         
@@ -132,3 +132,4 @@ const Staff = ({ serverName }) => {
 };
 
 export default Staff;
+

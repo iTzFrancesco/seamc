@@ -1,4 +1,4 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 @config "../tailwind.config.js";
 
 html {
@@ -15,7 +15,7 @@ body {
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  @apply bg-jade-dark text-white font-sans;
+  @apply bg-sea-dark text-white font-sans;
   background-image: radial-gradient(circle at center, rgba(56, 189, 248, 0.05) 0%, rgba(3, 20, 39, 1) 100%);
 }
 
@@ -24,17 +24,17 @@ body {
     @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl;
   }
 
-  .jade-button {
-    @apply px-6 py-3 bg-jade-glow/20 border border-jade-glow/30 rounded-xl text-jade-glow font-bold transition-all duration-300 active:scale-95 cursor-pointer flex items-center justify-center gap-2;
+  .sea-button {
+    @apply px-6 py-3 bg-sea-glow/20 border border-sea-glow/30 rounded-xl text-sea-glow font-bold transition-all duration-300 active:scale-95 cursor-pointer flex items-center justify-center gap-2;
   }
 
-  .jade-button:hover {
-    @apply bg-jade-glow/30;
+  .sea-button:hover {
+    @apply bg-sea-glow/30;
     box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
   }
 
   .mode-card {
-    @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center transition-all duration-500 hover:translate-y-[-8px] hover:border-jade-glow/40;
+    @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center transition-all duration-500 hover:translate-y-[-8px] hover:border-sea-glow/40;
   }
 
   .mode-card:hover {
@@ -66,11 +66,21 @@ body {
   text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
 }
 
+.text-cyan-glow {
+  color: rgb(34 211 238);
+  text-shadow: 0 0 14px rgba(34, 211, 238, 0.65);
+}
+
+.text-white-glow {
+  color: #fff;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.55);
+}
+
 .text-glow-amber {
   text-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
 }
 
-.bg-jade-gradient {
+.bg-sea-gradient {
   background: linear-gradient(135deg, rgba(186, 230, 253, 0.12) 0%, rgba(3, 20, 39, 0.55) 100%);
 }
 
@@ -198,4 +208,5 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #38bdf8 #031427;
 }
+
 

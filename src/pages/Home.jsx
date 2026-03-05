@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import logo from '../assets/logo-server.png';
 import mcLogo from '../assets/logo-minecraft.svg';
@@ -29,6 +30,60 @@ const featureCards = [
 
 const trustBadges = ['Eventi settimanali', 'Community italiana', 'Staff attivo'];
 
+const randomPercent = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}%`;
+
+const randomOrbPoint = () => ({
+  left: Math.floor(Math.random() * (24 - 4 + 1)) + 4,
+  top: Math.floor(Math.random() * (40 - 6 + 1)) + 6,
+});
+
+const distanceBetween = (a, b) => {
+  const dx = a.left - b.left;
+  const dy = a.top - b.top;
+  return Math.hypot(dx, dy);
+};
+
+const toOrbStyle = (point) => ({
+  left: `${point.left}%`,
+  top: `${point.top}%`,
+  right: 'auto',
+  bottom: 'auto',
+});
+
+const SectionOrbs = () => {
+  const layout = useMemo(
+    () => {
+      const minGap = 16;
+      const a = randomOrbPoint();
+      let b = randomOrbPoint();
+      let attempts = 0;
+      while (distanceBetween(a, b) < minGap && attempts < 60) {
+        b = randomOrbPoint();
+        attempts += 1;
+      }
+      return { a: toOrbStyle(a), b: toOrbStyle(b) };
+    },
+    []
+  );
+
+  return (
+    <>
+      <motion.div
+        className="orb orb-a hidden md:block opacity-70"
+        style={layout.a}
+        animate={{ x: [0, 24, 0], rotate: [0, 8, 0] }}
+        transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.div
+        className="orb orb-b hidden md:block opacity-60"
+        style={layout.b}
+        animate={{ x: [0, -20, 0], rotate: [0, -7, 0] }}
+        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+      />
+    </>
+  );
+};
+
 const Home = ({ serverIP, serverName, mcPlayers, discordOnline, discordInvite, modesMaxWidth = '52rem', copyToClipboard, copied }) => {
   return (
     <>
@@ -56,21 +111,22 @@ const Home = ({ serverIP, serverName, mcPlayers, discordOnline, discordInvite, m
           <h1 className="text-4xl md:text-6xl font-black text-white tracking-tight text-glow">
             Esplora, Costruisci, Domina.
             <br />
-            <span className="text-jade-glow">Questo è SeaMC</span>
+            <span className="text-sea-glow">Questo è <span className="text-cyan-glow">Sea</span></span><span className="text-white-glow">MC</span>
+            <br />
           </h1>
         </FadeInView>
 
         <FadeInView direction="up" delay={0.4} duration={0.8}>
-          <p className="text-base md:text-xl text-jade-light/90 max-w-3xl mx-auto mt-5 leading-relaxed">
-            Server Minecraft italiano a tema oceano con SeaSMP, eventi competitivi e community attiva.
-            Entra su <span className="text-jade-glow font-bold">play.seamc.it</span> e inizia la tua avventura.
+          <p className="text-base md:text-xl text-sea-light/90 max-w-3xl mx-auto mt-5 leading-relaxed">
+            Server Minecraft italiano a tema oceano con eventi competitivi e community attiva.
+            Entra su <span className="text-cyan-300 font-bold">play.seamc.it</span> e inizia la tua avventura.
           </p>
         </FadeInView>
 
         <FadeInView direction="up" delay={0.55} duration={0.8}>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             {trustBadges.map((badge) => (
-              <span key={badge} className="px-4 py-2 rounded-full border border-jade-glow/30 bg-jade-glow/10 text-jade-light text-xs md:text-sm tracking-wide">
+              <span key={badge} className="px-4 py-2 rounded-full border border-sea-glow/30 bg-sea-glow/10 text-sea-light text-xs md:text-sm tracking-wide">
                 {badge}
               </span>
             ))}
@@ -79,7 +135,7 @@ const Home = ({ serverIP, serverName, mcPlayers, discordOnline, discordInvite, m
 
         <FadeInView direction="up" delay={0.65} duration={0.8}>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <motion.a href="#come-entrare" className="jade-button min-w-[200px]" whileHover={{ scale: 1.05, x: 2 }} whileTap={{ scale: 0.96 }}>
+            <motion.a href="#come-entrare" className="sea-button min-w-[200px]" whileHover={{ scale: 1.05, x: 2 }} whileTap={{ scale: 0.96 }}>
               Inizia a Giocare
             </motion.a>
             <motion.a
@@ -98,6 +154,7 @@ const Home = ({ serverIP, serverName, mcPlayers, discordOnline, discordInvite, m
 
       {/* istruzioni accesso - stats minecraft e discord */}
       <section id="come-entrare" className="w-full mb-24 theme-band theme-band-emerald">
+        <SectionOrbs />
         <FadeInView direction="up" duration={0.6}>
           <h2 className="text-2xl md:text-3xl font-black text-white mb-2 text-center">🌊 <span className="text-emerald-400">Come Entrare</span></h2>
         </FadeInView>
@@ -126,16 +183,16 @@ const Home = ({ serverIP, serverName, mcPlayers, discordOnline, discordInvite, m
         </StaggerContainer>
 
         <StaggerContainer className="flex justify-center w-full" staggerDelay={0.15}>
-          <div className="glass-card !bg-jade-dark/40 backdrop-blur-xl border-jade-glow/30 p-1 md:p-1.5 rounded-2xl flex flex-col md:flex-row items-stretch gap-2 shadow-[0_0_40px_rgba(56,189,248,0.1)]">
+          <div className="glass-card !bg-sea-dark/40 backdrop-blur-xl border-sea-glow/30 p-1 md:p-1.5 rounded-2xl flex flex-col md:flex-row items-stretch gap-2 shadow-[0_0_40px_rgba(56,189,248,0.1)]">
             <StaggerItem>
               <motion.div
-                className="flex items-center justify-center gap-4 bg-jade-dark/60 hover:bg-jade-dark/80 transition-all duration-300 px-6 py-3 rounded-xl cursor-pointer border border-dashed border-white/10 group"
+                className="flex items-center justify-center gap-4 bg-sea-dark/60 hover:bg-sea-dark/80 transition-all duration-300 px-6 py-3 rounded-xl cursor-pointer border border-dashed border-white/10 group"
                 onClick={copyToClipboard}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <div className="flex flex-col items-start leading-none">
-                  <span className="text-[10px] text-jade-light/40 uppercase font-black tracking-widest mb-1 text-left">Server IP:</span>
+                  <span className="text-[10px] text-sea-light/40 uppercase font-black tracking-widest mb-1 text-left">Server IP:</span>
                   <span className="text-white font-mono text-xl">{serverIP}</span>
                 </div>
                 <div className="ml-2">
@@ -144,7 +201,7 @@ const Home = ({ serverIP, serverName, mcPlayers, discordOnline, discordInvite, m
                       COPIATO!
                     </motion.span>
                   ) : (
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-jade-glow/60 group-hover:text-jade-glow group-hover:rotate-12 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-sea-glow/60 group-hover:text-sea-glow group-hover:rotate-12 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
                     </svg>
                   )}
@@ -153,7 +210,7 @@ const Home = ({ serverIP, serverName, mcPlayers, discordOnline, discordInvite, m
             </StaggerItem>
 
             <StaggerItem>
-              <motion.div className="flex items-center justify-center gap-4 bg-sky-500/10 px-6 py-3 rounded-xl border border-sky-400/20 min-w-[160px]" whileHover={{ scale: 1.02 }}>
+              <motion.div className="flex items-center justify-center gap-4 bg-sky-500/10 px-6 py-3 rounded-xl border border-sky-400/20 w-full md:w-[220px]" whileHover={{ scale: 1.02 }}>
                 <div className="p-2 bg-sky-500/15 rounded-lg">
                   <img src={mcLogo} alt="Minecraft" className="w-10 h-10 object-contain" />
                 </div>
@@ -173,9 +230,9 @@ const Home = ({ serverIP, serverName, mcPlayers, discordOnline, discordInvite, m
             </StaggerItem>
 
             <StaggerItem>
-              <motion.div className="flex items-center justify-center gap-4 bg-[#5865F2]/5 px-6 py-3 rounded-xl border border-[#5865F2]/10 min-w-[160px]" whileHover={{ scale: 1.02 }}>
+              <motion.div className="flex items-center justify-center gap-4 bg-[#5865F2]/5 px-6 py-3 rounded-xl border border-[#5865F2]/10 w-full md:w-[220px]" whileHover={{ scale: 1.02 }}>
                 <div className="p-2 bg-[#5865F2]/10 rounded-lg">
-                  <svg className="w-6 h-6 text-[#5865F2]" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-10 h-10 text-[#5865F2]" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 11.756 11.756 0 0 0-.617-1.25.077.077 0 0 0-.079-.037 19.736 19.736 0 0 0-4.885 1.515.069.069 0 0 0-.032.027C.533 9.048-.32 13.579.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.078.078 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.956 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.946 2.419-2.157 2.419z" />
                   </svg>
                 </div>
@@ -199,6 +256,7 @@ const Home = ({ serverIP, serverName, mcPlayers, discordOnline, discordInvite, m
 
       {/* storia - descrizione server */}
       <section className="w-full mb-24 theme-band theme-band-indigo">
+        <SectionOrbs />
         <ScaleInView duration={0.7}>
           <motion.div className="glass-card bg-indigo-500/5 border-indigo-500/20 p-6 md:p-8" whileHover={{ y: -6 }}>
             <div className="section-divider !from-transparent !via-indigo-500 !to-transparent" />
@@ -217,6 +275,7 @@ const Home = ({ serverIP, serverName, mcPlayers, discordOnline, discordInvite, m
 
       {/* info extra e caratteristiche del server */}
       <section className="w-full mb-24 theme-band theme-band-indigo">
+        <SectionOrbs />
         <FadeInView direction="up" duration={0.6}>
           <h2 className="text-2xl md:text-3xl font-black text-white mb-2 text-center">
             ⚓ Perche Scegliere SeaMC
@@ -246,6 +305,7 @@ const Home = ({ serverIP, serverName, mcPlayers, discordOnline, discordInvite, m
 
       {/* features ed eventi */}
       <section className="w-full mb-24 theme-band theme-band-amber">
+        <SectionOrbs />
         <FadeInView direction="up" duration={0.6}>
           <h2 className="text-2xl md:text-3xl font-black text-white mb-6 text-center text-glow-amber">Features</h2>
         </FadeInView>
@@ -266,33 +326,35 @@ const Home = ({ serverIP, serverName, mcPlayers, discordOnline, discordInvite, m
 
       {/* modalità disponibili */}
       <section className="w-full mx-auto mb-24 theme-band theme-band-deep" style={{ maxWidth: modesMaxWidth }}>
+        <SectionOrbs />
         <FadeInView direction="up" duration={0.6}>
-          <h2 className="text-2xl md:text-3xl font-black text-white mb-6 text-center">Modalita</h2>
+          <h2 className="text-2xl md:text-3xl font-black text-white mb-6 text-center">Modalità</h2>
         </FadeInView>
         <ScaleInView duration={0.6}>
           <motion.div className="mode-card group" whileHover={{ y: -10, transition: { duration: 0.3 } }}>
             <motion.div
-              className="w-32 h-32 bg-white/5 backdrop-blur-md border border-jade-glow/20 rounded-full flex items-center justify-center mb-6 group-hover:border-jade-glow/50 transition-all duration-500 shadow-[0_0_20px_rgba(56,189,248,0.1)]"
+              className="w-32 h-32 bg-white/5 backdrop-blur-md border border-sea-glow/20 rounded-full flex items-center justify-center mb-6 group-hover:border-sea-glow/50 transition-all duration-500 shadow-[0_0_20px_rgba(56,189,248,0.1)]"
               whileHover={{ scale: 1.1, rotate: 5 }}
               transition={{ duration: 0.4 }}
             >
               <img src={smpIcon} alt="SMP icon" className="w-28 h-28 object-contain drop-shadow-[0_0_10px_rgba(56,189,248,0.3)]" />
             </motion.div>
             <h3 className="text-2xl font-bold mb-3 text-white">SeaSMP</h3>
-            <p className="text-jade-light/60 text-s leading-relaxed">La modalita disponibile al momento e SeaSMP.</p>
+            <p className="text-sea-light/60 text-s leading-relaxed">La modalita disponibile al momento e SeaSMP.</p>
           </motion.div>
         </ScaleInView>
       </section>
 
       {/* community - discord */}
       <ScaleInView className="w-full relative group mb-32" duration={0.8}>
+        <SectionOrbs />
         <motion.div
-          className="wavy-container border border-jade-glow/20 overflow-hidden transition-all duration-500 rounded-[2.5rem] shadow-[0_0_60px_rgba(56,189,248,0.1)] bg-jade-dark/40 backdrop-blur-md"
+          className="wavy-container border border-sea-glow/20 overflow-hidden transition-all duration-500 rounded-[2.5rem] shadow-[0_0_60px_rgba(56,189,248,0.1)] bg-sea-dark/40 backdrop-blur-md"
           whileHover={{ y: -6 }}
         >
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12 px-8 md:px-20 py-16">
             <motion.div className="relative w-48 h-48 md:w-64 md:h-64" animate={{ y: [0, -15, 0] }} transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}>
-              <div className="absolute inset-0 bg-jade-glow/20 blur-[50px] rounded-full animate-pulse-slow"></div>
+              <div className="absolute inset-0 bg-sea-glow/20 blur-[50px] rounded-full animate-pulse-slow"></div>
               <img src={mascot} alt="Discord mascot" className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_30px_rgba(56,189,248,0.4)]" />
             </motion.div>
 
@@ -308,7 +370,7 @@ const Home = ({ serverIP, serverName, mcPlayers, discordOnline, discordInvite, m
 
               <FadeInView direction="right" delay={0.4}>
                 <p className="text-white/70 text-lg leading-relaxed max-w-lg">
-                  Unisciti a <span className="text-jade-glow font-bold">{discordOnline}</span> giocatori su Discord. Ricevi supporto, partecipa a eventi e scala i ranghi!
+                  Unisciti a <span className="text-sea-glow font-bold">{discordOnline}</span> giocatori su Discord. Ricevi supporto, partecipa a eventi e scala i ranghi!
                 </p>
               </FadeInView>
 
