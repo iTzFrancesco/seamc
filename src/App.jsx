@@ -8,6 +8,7 @@ function App() {
   const serverIP = "play.seamc.it"
   const serverName = "SeaMC"
   const discordInvite = "https://discord.gg/HDxBHTjmcT"
+  const discordInviteCode = "HDxBHTjmcT"
   const modesMaxWidth = "34rem"
 
   const copyToClipboard = () => {
@@ -31,9 +32,11 @@ function App() {
       }
 
       try {
-        const discordResponse = await fetch('https://discord.com/api/guilds/1472205185618149396/widget.json')
+        const discordResponse = await fetch(`https://discord.com/api/v10/invites/${discordInviteCode}?with_counts=true`)
         const discordData = await discordResponse.json()
-        if (discordData.presence_count !== undefined) setDiscordOnline(discordData.presence_count)
+        if (discordData.approximate_presence_count !== undefined) {
+          setDiscordOnline(discordData.approximate_presence_count)
+        }
       } catch (err) {
         console.error("Error fetching Discord stats:", err)
       }
@@ -59,6 +62,5 @@ function App() {
 }
 
 export default App
-
 
 

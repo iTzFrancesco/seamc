@@ -1,5 +1,6 @@
 ﻿User-agent: *
 Allow: /
 
-Sitemap: https://seamc.fun/sitemap.xml
+Sitemap: https://seamc.it/sitemap.xml
+
 

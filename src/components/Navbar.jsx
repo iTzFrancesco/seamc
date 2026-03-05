@@ -9,7 +9,6 @@ const Navbar = ({ serverName }) => {
     const navLinks = [
         { name: 'Home', path: '/' },
         { name: 'Staff', path: '/staff' },
-        { name: 'Regole', path: '/regole' },
         { name: 'Store', path: '/store' },
     ];
 
