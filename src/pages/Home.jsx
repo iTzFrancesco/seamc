@@ -1,0 +1,134 @@
+﻿import React from 'react';
+import logo from '../assets/logo-server.png';
+import mcLogo from '../assets/logo-minecraft.svg';
+import smpIcon from '../assets/logo-smp.png';
+import mascot from '../assets/mascott-discord.png';
+
+const Home = ({ serverIP, serverName, mcPlayers, discordOnline, discordInvite, modesMaxWidth = '52rem', copyToClipboard, copied }) => {
+    return (
+        <>
+            <section className="w-full text-center mb-14">
+                <div className="mb-10 animate-pulse-slow">
+                    <img src={logo} alt={`${serverName} logo`} className="w-64 md:w-80 mx-auto drop-shadow-[0_0_30px_rgba(56,189,248,0.4)]" />
+                </div>
+
+                <h1 className="text-4xl md:text-6xl font-black text-white tracking-tighter text-glow">
+                    Benvenuto su <span className="text-jade-glow">SeaMC</span>
+                </h1>
+                <p className="text-lg md:text-xl text-jade-light/80 max-w-2xl mx-auto mt-5">
+                    Un server Minecraft italiano a tema oceano, con atmosfera marina, eventi e community attiva.
+                </p>
+
+                <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+                    <div className="glass-card p-4 border-jade-glow/30 bg-jade-dark/40">
+                        <div className="text-xs uppercase tracking-[0.2em] text-jade-light/70 mb-3">Placeholder Hero 01</div>
+                        <div className="rounded-2xl overflow-hidden border border-jade-glow/20 bg-gradient-to-br from-sky-500/20 to-cyan-400/5">
+                            <img src={logo} alt="Placeholder visual SeaMC" className="w-full h-48 object-contain p-5" />
+                        </div>
+                    </div>
+                    <div className="glass-card p-4 border-jade-glow/30 bg-jade-dark/40">
+                        <div className="text-xs uppercase tracking-[0.2em] text-jade-light/70 mb-3">Placeholder Hero 02</div>
+                        <div className="rounded-2xl overflow-hidden border border-jade-glow/20 bg-gradient-to-br from-cyan-500/20 to-sky-400/5">
+                            <img src={mascot} alt="Placeholder mascot SeaMC" className="w-full h-48 object-contain p-4" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div className="flex justify-center w-full mb-20">
+                <div className="glass-card !bg-jade-dark/40 backdrop-blur-xl border-jade-glow/30 p-1 md:p-1.5 rounded-2xl flex flex-col md:flex-row items-stretch gap-2 shadow-[0_0_40px_rgba(56,189,248,0.1)]">
+                    <div
+                        className="flex items-center justify-center gap-4 bg-jade-dark/60 hover:bg-jade-dark/80 transition-all duration-300 px-6 py-3 rounded-xl cursor-pointer border border-dashed border-white/10 group"
+                        onClick={copyToClipboard}
+                    >
+                        <div className="flex flex-col items-start leading-none">
+                            <span className="text-[10px] text-jade-light/40 uppercase font-black tracking-widest mb-1 text-left">Server IP:</span>
+                            <span className="text-white font-mono text-xl">{serverIP}</span>
+                        </div>
+                        <div className="ml-2">
+                            {copied ? (
+                                <span className="text-sky-400 font-bold animate-bounce text-sm">COPIATO!</span>
+                            ) : (
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-jade-glow/60 group-hover:text-jade-glow group-hover:rotate-12 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                                </svg>
+                            )}
+                        </div>
+                    </div>
+
+                    <div className="flex items-center justify-center gap-4 bg-sky-500/10 px-6 py-3 rounded-xl border border-sky-400/20 min-w-[160px]">
+                        <div className="p-2 bg-sky-500/15 rounded-lg">
+                            <img src={mcLogo} alt="Minecraft" className="w-10 h-10 object-contain" />
+                        </div>
+                        <div className="flex flex-col items-start leading-none">
+                            <span className="text-[10px] text-sky-400/60 uppercase font-black tracking-widest mb-1">Minecraft</span>
+                            <div className="flex items-center gap-2">
+                                <span className="text-white font-black text-2xl">{mcPlayers}</span>
+                                <span className="flex h-2 w-2">
+                                    <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-sky-400 opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center justify-center gap-4 bg-[#5865F2]/5 px-6 py-3 rounded-xl border border-[#5865F2]/10 min-w-[160px]">
+                        <div className="p-2 bg-[#5865F2]/10 rounded-lg">
+                            <svg className="w-6 h-6 text-[#5865F2]" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 11.756 11.756 0 0 0-.617-1.25.077.077 0 0 0-.079-.037 19.736 19.736 0 0 0-4.885 1.515.069.069 0 0 0-.032.027C.533 9.048-.32 13.579.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.078.078 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.956 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.946 2.419-2.157 2.419z" />
+                            </svg>
+                        </div>
+                        <div className="flex flex-col items-start leading-none">
+                            <span className="text-[10px] text-[#5865F2]/60 uppercase font-black tracking-widest mb-1">Community</span>
+                            <div className="flex items-center gap-2">
+                                <span className="text-white font-black text-2xl">{discordOnline}</span>
+                                <span className="flex h-2 w-2">
+                                    <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-[#5865F2] opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#5865F2]"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="w-full mx-auto mb-24" style={{ maxWidth: modesMaxWidth }}>
+                <div className="mode-card group">
+                    <div className="w-32 h-32 bg-white/5 backdrop-blur-md border border-jade-glow/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-jade-glow/50 transition-all duration-500 shadow-[0_0_20px_rgba(56,189,248,0.1)]">
+                        <img src={smpIcon} alt="SMP icon" className="w-28 h-28 object-contain drop-shadow-[0_0_10px_rgba(56,189,248,0.3)]" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-3 text-white">SMP Ocean</h3>
+                    <p className="text-jade-light/60 text-s leading-relaxed">Sopravvivi, costruisci e collabora in un mondo a tema mare con economia, rank e feature custom.</p>
+                </div>
+            </div>
+
+            <div className="w-full relative group mb-32">
+                <div className="wavy-container border border-jade-glow/20 overflow-hidden transition-all duration-500 rounded-[2.5rem] shadow-[0_0_60px_rgba(56,189,248,0.1)] bg-jade-dark/40 backdrop-blur-md">
+                    <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12 px-8 md:px-20 py-16">
+                        <div className="relative w-48 h-48 md:w-64 md:h-64 hover:scale-105 transition-transform duration-500">
+                            <div className="absolute inset-0 bg-jade-glow/20 blur-[50px] rounded-full animate-pulse-slow"></div>
+                            <img src={mascot} alt="Discord mascot" className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_30px_rgba(56,189,248,0.4)]" />
+                        </div>
+
+                        <div className="flex-1 text-center md:text-left space-y-6">
+                            <h2 className="text-3xl font-black uppercase tracking-tight text-white italic">Community</h2>
+                            <p className="text-white/70 text-lg leading-relaxed max-w-lg">
+                                Unisciti a <span className="text-jade-glow font-bold">{discordOnline}</span> giocatori su Discord.
+                            </p>
+                            <div className="pt-2">
+                                <a href={discordInvite} target="_blank" rel="noopener noreferrer" className="discord-button px-10 py-4 text-xl shadow-[0_0_30px_rgba(88,101,242,0.3)]">
+                                    Unisciti al Discord
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="wavy-overlay top-[-5px] rotate-180 opacity-30 scale-y-110"></div>
+                    <div className="wavy-overlay bottom-[-5px] opacity-30 scale-y-110"></div>
+                </div>
+            </div>
+        </>
+    );
+};
+
+export default Home;

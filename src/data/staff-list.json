@@ -1,0 +1,62 @@
+{
+  "Owner": [
+    {
+      "displayName": "𝕮𝖗𝖎𝖕𝖙𝖆𝖙𝖔𝖍",
+      "mcName": "criptato_",
+      "description": "Owner & Dev"
+    },
+    {
+      "displayName": "KernelPanic",
+      "mcName": "K3rn3lPanic",
+      "description": "Owner & Dev"
+    }
+  ],
+  "Manager": [
+    {
+      "displayName": "𝖎𝕿𝖟𝕱𝖗𝖆𝖓𝖈𝖊𝖘𝖈𝖔",
+      "mcName": "iTzFrancesco7",
+      "description": "Manager & Dev"
+    }
+  ],
+  "Sr. Admin": [],
+  "Admin": [],
+  "Sr. Developer": [],
+  "Developer": [],
+  "Jr. Developer": [
+    {
+      "displayName": "𝖕𝖔𝖗𝖈𝖔𝖘𝖕𝖎𝖓𝖔𝖊𝖝𝖊",
+      "mcName": "porcospinoexe",
+      "description": ""
+    }
+  ],
+  "Builder": [],
+  "Sr. Mod": [],
+  "Mod": [
+    {
+      "displayName": "antiidolo",
+      "mcName": "xqpr",
+      "description": ""
+    }
+  ],
+  "Jr. Mod": [
+    {
+      "displayName": "OᐯEᖇᗪEᗩTᕼ__",
+      "mcName": "overdeath__",
+      "description": ""
+    },
+    {
+      "displayName": "ADDERALL",
+      "mcName": "Vinx_y",
+      "description": ""
+    }
+  ],
+  "Helper": [],
+  "Jr. Helper": [],
+  "ChatMod": [
+    {
+      "displayName": "Z3fun6",
+      "mcName": "Z3fun6",
+      "description": ""
+    }
+  ]
+}
