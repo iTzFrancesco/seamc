@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 import Staff from './pages/Staff.jsx'
-import Store from './pages/Store.jsx'
 import Layout from './components/Layout.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
 
@@ -15,7 +14,6 @@ createRoot(document.getElementById('root')).render(
         <Route path="/" element={<><ScrollToTop /><Layout /></>}>
           <Route index element={<App />} />
           <Route path="staff" element={<Staff />} />
-          <Route path="store" element={<Store />} />
         </Route>
       </Routes>
     </BrowserRouter>
